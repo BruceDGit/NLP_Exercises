@@ -7,11 +7,15 @@ print(doc)
 tokens = tk.sent_tokenize(doc)
 for i, token in enumerate(tokens):
     print("%2d" % (i + 1), token)
+
 print('-' * 15)
+
 tokens = tk.word_tokenize(doc)
 for i, token in enumerate(tokens):
     print("%2d" % (i + 1), token)
+
 print('-' * 15)
+
 tokenizer = tk.WordPunctTokenizer()
 tokens = tokenizer.tokenize(doc)
 for i, token in enumerate(tokens):
