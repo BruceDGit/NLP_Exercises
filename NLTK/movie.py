@@ -27,6 +27,7 @@ for fileid in fileids:
 pnumb, nnumb = int(0.8 * len(pdata)), int(0.8 * len(ndata))
 train_data = pdata[:pnumb] + ndata[:nnumb]
 test_data = pdata[pnumb:] + ndata[nnumb:]
+# print(test_data[0])
 
 model = cf.NaiveBayesClassifier.train(train_data)
 ac = cu.accuracy(model, test_data)
