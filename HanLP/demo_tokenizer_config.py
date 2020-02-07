@@ -2,7 +2,7 @@ from pyhanlp import *
 
 
 def demo_tokenizer_config(text):
-    """ 演示动态设置预置分词器，这里的设置是全局的
+    """ 演示动态设置预置分词器，这里的设置是全局的 
 
     >>> text = "泽田依子是上外日本文化经济学院的外教"
     >>> demo_tokenizer_config(text)
