@@ -42,15 +42,15 @@
 ## -y     Use the side by side output format.
 ##
 ## change the following per your installation:
-
-$diff = "C:/Program Files (x86)/GnuWin32/bin/diff";
+# $diff = "C:/Program Files (x86)/GnuWin32/bin/diff";
+$diff = "%ProgramFiles(x86)%/GnuWin32/bin/diff";
 
 $USAGE = "Usage:\t$0 dictionary truth test\n\t";
 
 if (@ARGV != 3) {print "$USAGE\n"; exit;}
 
-$tmp1 = "D:/GnuWin32/tmp/comp01$";
-$tmp2 = "D:/GnuWin32/tmp/comp02$";
+$tmp1 = "D:/GnuWin32/tmp/comp01$$";
+$tmp2 = "D:/GnuWin32/tmp/comp02$$";
 
 %dict = ();
 
