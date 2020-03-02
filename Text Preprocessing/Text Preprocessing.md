@@ -1,6 +1,6 @@
 # 用Python进行文本预处理
 
-原文链接：https://www.kaggle.com/shashanksai/text-preprocessing-using-python/notebook
+原文(同数据下载地址)：https://www.kaggle.com/shashanksai/text-preprocessing-using-python/notebook
 
 Bruce 译
 
@@ -239,7 +239,7 @@ print(final_X[1])
 
 ```python
 count_vect = CountVectorizer(max_features=5000)
-bow_data = count_vect.fit_transform(final_X)
+bow_data = count_vect.fit_transform(final_X)  # 稀疏矩阵
 print(bow_data[1])
 ```
 
@@ -391,7 +391,7 @@ Word2Vec实际上采用了单词的语义含义以及它们与其他单词之间
 
 **Average Word2Vec**
 
-计算每个单词的Word2vec，将每个单词的向量相加，然后将向量除以句子的单词数，简单地求出所有单词的Word2vec的平均值。
+计算每个单词的Word2vec，将每个单词的向量相加，然后将向量除以句子的单词数，简单地求出每条评论中所有单词的Word2vec的平均值。
 
  
 
@@ -473,6 +473,7 @@ tf_idf_data = tf_idf.fit_transform(tf_w_data)
  
 
 ```python
+# 此处代码实现有问题，不能确保相乘的tfidf值和Word2Vec值是同一个单词的
 tf_w_data = []
 tf_idf_data = tf_idf_data.toarray()
 i = 0
@@ -490,7 +491,7 @@ for row in splitted:
         try:
             count += 1
             tf_idf_sum = tf_idf_sum + temp_tfidf[count-1]
-            vec += (temp_tfidf[count-1] * train_w2v[word])
+            vec += (temp_tfidf[count-1] * train_w2v[word])  # 不能保证是同一个单词的
         except:
             pass
     vec = (float)(1/tf_idf_sum) * vec
